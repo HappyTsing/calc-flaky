@@ -111,3 +111,4 @@ def get_result_dirs():
     return dir_names
 
 def calc_single_file():
+    return 0

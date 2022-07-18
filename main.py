@@ -43,4 +43,4 @@ def calc_flaky_percent():
     return 0
 
 
-calc_flaky_percent()
+mvn_retest()
