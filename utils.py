@@ -1,9 +1,10 @@
-import shutil, os
-import logging
 import json
+import logging
+import os
+import subprocess
+import shutil
 import pandas as pd
 from functools import cmp_to_key
-import subprocess
 
 LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
 DATE_FORMAT = "%Y/%m/%d %H:%M:%S %p"
@@ -98,3 +99,15 @@ def do_mvn_tests(mutated_config_name, tsv_false, useCache: bool = False):
         with open("result/mvn_test_{}/{}.log".format(mutated_config_name_no_suffix, class_path), 'w') as f:
             # 执行命令并覆盖写入文件中
             subprocess.run("mvn test -Dtest={}".format(class_path), shell=True, cwd=maven_path, stdout=f)
+
+
+'''utils for calc_flaky_percent '''
+
+
+def get_result_dirs():
+    result_address = os.path.dirname(os.path.abspath(__file__)) + "/result/"
+    dir_names = os.listdir(result_address)
+    dir_names.sort(key=cmp_to_key(cmp))
+    return dir_names
+
+def calc_single_file():

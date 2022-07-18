@@ -1,11 +1,7 @@
+import logging
+import os
+from utils import config_replace, get_false_ctest, do_mvn_tests, get_all_mutated_config_names,get_result_dirs
 from tqdm import tqdm
-from utils import *
-from time import sleep
-from time import sleep
-
-from tqdm import tqdm
-
-from utils import *
 
 # from utils import init
 LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
@@ -19,7 +15,7 @@ logging.basicConfig(level=logging.DEBUG, format=LOG_FORMAT, datefmt=DATE_FORMAT)
 def mvn_retest():
     mutated_config_names = get_all_mutated_config_names()
     with tqdm(total=len(mutated_config_names)) as pbar:
-        pbar.set_description("Testing")
+        pbar.set_description("mvn testing")
         for mutated_config_name in mutated_config_names:
             try:
                 # 1. 替换配置
@@ -34,8 +30,17 @@ def mvn_retest():
             except Exception as e:
                 continue
 
+
 def calc_flaky_percent():
-    # todo
+
+    dir_names = get_result_dirs()
+    print(dir_names)
+    with tqdm(total=len(dir_names)) as pbar:
+        pbar.set_description("flaky calcing")
+        for dir_name in dir_names:
+            dir_files = os.listdir("result/{}".format(dir_name))
+        pbar.update(1)
     return 0
 
-mvn_retest()
+
+calc_flaky_percent()
