@@ -1,21 +1,40 @@
-# 零、准备
+# 1. Install
+
+保证项目结构如下：
+```
+tree -L 1
+.
+├── hadoop-rel-release-3.3.2
+├── run_ctest
+└── script
+```
 
 ```
-# 编译项目
+# 编译Hadoop项目
 cd hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/
 mvn install -DskipTests
 ```
 
-# 一、配置替换
+```
+# 安装依赖
+pipenv install
+```
 
-把`run_ctest/sample-hadoop-common-new`中的`mutated_file_hadoop-common-new_1.xml`，复制到`hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/classes/core-default.xml`中。
+# 2. Description
 
-# 二、单元测试
+## 2.1 配置替换
 
-找到`run_ctest/run_ctest-result/hadoop-common-new/test_result_mutated_file_hadoop-common-new_1.tsv`，然后依次遍历每一行，找到其中第二列为 f 的，然后获取第一列的数据，执行：
+把`run_ctest/sample-hadoop-common-new/mutated_file_hadoop-common-new_1.xml`，复制到`hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/classes/core-default.xml`中。
+
+## 2.2 单元测试
+
+使用pandas处理`run_ctest/run_ctest-result/hadoop-common-new/test_result_mutated_file_hadoop-common-new_1.tsv`，获取 f 的测试结果，并对每一个结果执行：
 
 ```
 mvn test -Dtest=org.apache.hadoop.xxx#xxx
 ```
+将`mvn test`的结果存储在`/result`目录下。
 
-获取测试结果
+## 2.3 统计误报率
+
+读取`/result`目录下的执行结果，做统计分析。
