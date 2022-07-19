@@ -8,7 +8,8 @@ from functools import cmp_to_key
 
 LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
 DATE_FORMAT = "%Y/%m/%d %H:%M:%S %p"
-logging.basicConfig(level=logging.DEBUG, format=LOG_FORMAT, datefmt=DATE_FORMAT)
+logging.basicConfig(level=logging.DEBUG,
+                    format=LOG_FORMAT, datefmt=DATE_FORMAT)
 
 # logging.info(os.getcwd())  # /Users/happytsing/Projects/configClassify/script
 
@@ -71,7 +72,8 @@ def get_false_ctest(mutated_config_name):
     try:
         ctest_result_path = get_meta("path", "ctest_result")
         ctest_result_name = get_ctest_result_name(mutated_config_name)
-        ctest_result_fullpath = "{}/{}".format(ctest_result_path, ctest_result_name)
+        ctest_result_fullpath = "{}/{}".format(
+            ctest_result_path, ctest_result_name)
         tsv = pd.read_csv(ctest_result_fullpath, delimiter='\t', names=["class_path", "bool", "time"], header=None,
                           usecols=["class_path", "bool"])
         tsv_false = tsv.query("bool == 'f'")
@@ -85,7 +87,8 @@ def get_false_ctest(mutated_config_name):
 # @useCache：已经跑过的是否需要重新跑一次
 def do_mvn_tests(mutated_config_name, tsv_false, useCache: bool = False):
     maven_path = get_meta("path", "maven")
-    mutated_config_name_no_suffix = mutated_config_name.split(".")[0]  # 去文件后缀.xml
+    mutated_config_name_no_suffix = mutated_config_name.split(".")[
+        0]  # 去文件后缀.xml
     # 避免重复创建结果文件夹
     if not os.path.exists("result"):
         os.system("mkdir result")
@@ -94,11 +97,13 @@ def do_mvn_tests(mutated_config_name, tsv_false, useCache: bool = False):
     for _index, row in tsv_false.iterrows():
         class_path = row["class_path"]
         if useCache and os.path.exists("result/mvn_test_{}/{}.log".format(mutated_config_name_no_suffix, class_path)):
-            logging.info("mvn_test_{}/{}.log Hit the cache！".format(mutated_config_name_no_suffix, class_path))
+            logging.info(
+                "mvn_test_{}/{}.log Hit the cache！".format(mutated_config_name_no_suffix, class_path))
             continue
         with open("result/mvn_test_{}/{}.log".format(mutated_config_name_no_suffix, class_path), 'w') as f:
             # 执行命令并覆盖写入文件中
-            subprocess.run("mvn test -Dtest={}".format(class_path), shell=True, cwd=maven_path, stdout=f)
+            subprocess.run("mvn test -Dtest={}".format(class_path),
+                           shell=True, cwd=maven_path, stdout=f)
 
 
 '''utils for calc_flaky_percent '''
@@ -109,6 +114,7 @@ def get_result_dirs():
     dir_names = os.listdir(result_address)
     dir_names.sort(key=cmp_to_key(cmp))
     return dir_names
+
 
 def calc_single_file():
     return 0
