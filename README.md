@@ -1,6 +1,6 @@
 # 1. Install
 
-保证项目结构如下：
+默认情况下需要保证项目结构如下，可以通过`meta.json`修改文件相对路径：
 ```
 tree -L 1
 .
@@ -17,7 +17,7 @@ mvn install -DskipTests
 
 ```
 # 安装依赖
-cd script
+cd calc_flaky
 pipenv install
 ```
 

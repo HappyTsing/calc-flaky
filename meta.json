@@ -3,12 +3,13 @@
         "mutated_config":"../run_ctest/sample-hadoop-common-new",
         "ctest_result":"../run_ctest/run_ctest_result/hadoop-common-new",
         "hadoop_config":"../hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/classes",
-        "maven":"../hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common"
+        "maven":"../hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common",
+        "result":"./result"
     },
     "name":{
         "hadoop_config":"core-default.xml"
     },
     "comment":{
-        "pwd":"configClassify/script"
+        "pwd":"configClassify/calc_flaky"
     }
 }

@@ -1,6 +1,7 @@
 import logging
 import os
-from utils import config_replace, get_false_ctest, do_mvn_tests, get_all_mutated_config_names, get_result_dirs
+from utils import config_replace, get_false_ctest, do_mvn_tests, get_ordered_all_mutated_config_names, \
+    get_ordered_result_dirs, calc_single_file, get_meta
 from tqdm import tqdm
 
 # from utils import init
@@ -14,7 +15,7 @@ logging.basicConfig(level=logging.DEBUG,
 
 
 def mvn_retest():
-    mutated_config_names = get_all_mutated_config_names()
+    mutated_config_names = get_ordered_all_mutated_config_names()
     with tqdm(total=len(mutated_config_names)) as pbar:
         pbar.set_description("mvn testing")
         for mutated_config_name in mutated_config_names:
@@ -26,7 +27,7 @@ def mvn_retest():
                 tsv_false = get_false_ctest(mutated_config_name)
                 counts = tsv_false.shape[0]
                 if counts > 30:
-                    logging.error("{} 错误f大于30，跳过".format(mutated_config_name))
+                    logging.error("{} 错误f的条目总数为：{},大于30，跳过".format(mutated_config_name, counts))
                     continue
                 # 3. 为每个错误的测试执行mvn，并写入文件中
                 do_mvn_tests(mutated_config_name, tsv_false, useCache=True)
@@ -36,14 +37,32 @@ def mvn_retest():
 
 
 def calc_flaky_percent():
-
-    dir_names = get_result_dirs()
-    with tqdm(total=len(dir_names)) as pbar:
-        pbar.set_description("flaky calcing")
-        for dir_name in dir_names:
-            dir_files = os.listdir("result/{}".format(dir_name))
-        pbar.update(1)
+    result_dir_names = get_ordered_result_dirs()
+    result_path = get_meta("path", "result")
+    calc_merge = {
+        "run": 0,
+        "Failures": 0,
+        "Errors": 0,
+        "Skipped": 0
+    }
+    for dir_name in result_dir_names:
+        logging.info("当前计算的目录名：{}".format(dir_name))
+        logging.info("=============================================================")
+        dir_files = os.listdir("{}/{}".format(result_path, dir_name))
+        for mvn_test_log in dir_files:
+            logging.info("当前计算的文件名：{}".format(mvn_test_log))
+            dir_path = "{}/{}".format(result_path, dir_name)
+            try:
+                result = calc_single_file(dir_path, mvn_test_log)
+            except Exception as e:
+                logging.error("获取失败不纳入计算范围")
+                continue
+            for k, v in result.items():
+                calc_merge[k] += v
+        logging.info("=============================================================")
+    logging.info("汇总计算结果为:{}".format(calc_merge))
     return 0
 
 
-mvn_retest()
+# mvn_retest()
+calc_flaky_percent()

@@ -5,6 +5,7 @@ import subprocess
 import shutil
 import pandas as pd
 from functools import cmp_to_key
+import re
 
 LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
 DATE_FORMAT = "%Y/%m/%d %H:%M:%S %p"
@@ -39,7 +40,7 @@ def cmp(a, b):
     return 0
 
 
-def get_all_mutated_config_names():
+def get_ordered_all_mutated_config_names():
     mutated_config_path = get_meta("path", "mutated_config")
     mutated_config_names = os.listdir(mutated_config_path)
     # 删除core-default.xml
@@ -89,18 +90,20 @@ def do_mvn_tests(mutated_config_name, tsv_false, useCache: bool = False):
     maven_path = get_meta("path", "maven")
     mutated_config_name_no_suffix = mutated_config_name.split(".")[
         0]  # 去文件后缀.xml
+    result_path = get_meta("path", "result")
+    print(result_path)
     # 避免重复创建结果文件夹
-    if not os.path.exists("result"):
-        os.system("mkdir result")
-    if not os.path.exists("result/mvn_test_{}".format(mutated_config_name_no_suffix)):
-        os.system("mkdir result/mvn_test_{}".format(mutated_config_name_no_suffix))
+    if not os.path.exists(result_path):
+        os.system("mkdir -p {}".format(result_path))
+    if not os.path.exists("{}/mvn_test_{}".format(result_path, mutated_config_name_no_suffix)):
+        os.system("mkdir -p {}/mvn_test_{}".format(result_path, mutated_config_name_no_suffix))
     for _index, row in tsv_false.iterrows():
         class_path = row["class_path"]
-        if useCache and os.path.exists("result/mvn_test_{}/{}.log".format(mutated_config_name_no_suffix, class_path)):
+        if useCache and os.path.exists("{}/mvn_test_{}/{}.log".format(result_path, mutated_config_name_no_suffix, class_path)):
             logging.info(
                 "mvn_test_{}/{}.log Hit the cache！".format(mutated_config_name_no_suffix, class_path))
             continue
-        with open("result/mvn_test_{}/{}.log".format(mutated_config_name_no_suffix, class_path), 'w') as f:
+        with open("{}/mvn_test_{}/{}.log".format(result_path, mutated_config_name_no_suffix, class_path), 'w') as f:
             # 执行命令并覆盖写入文件中
             subprocess.run("mvn test -Dtest={}".format(class_path),
                            shell=True, cwd=maven_path, stdout=f)
@@ -109,12 +112,27 @@ def do_mvn_tests(mutated_config_name, tsv_false, useCache: bool = False):
 '''utils for calc_flaky_percent '''
 
 
-def get_result_dirs():
-    result_address = os.path.dirname(os.path.abspath(__file__)) + "/result/"
-    dir_names = os.listdir(result_address)
+def get_ordered_result_dirs():
+    result_path = get_meta("path", "result")
+    dir_names = os.listdir(result_path)
     dir_names.sort(key=cmp_to_key(cmp))
     return dir_names
 
 
-def calc_single_file():
-    return 0
+def calc_single_file(dir_path, mvn_test_file_log):
+    try:
+        with open("{}/".format(dir_path) + mvn_test_file_log, 'r') as f:
+            mvn_test_log = f.read()
+            regex = r"Tests run: \d, Failures: \d, Errors: \d, Skipped: \d"
+            mvn_test_result = re.search(regex, mvn_test_log).group()
+            mvn_test_result_map = {
+                "run": int(mvn_test_result[11]),
+                "Failures": int(mvn_test_result[24]),
+                "Errors": int(mvn_test_result[35]),
+                "Skipped": int(mvn_test_result[47]),
+            }
+        return mvn_test_result_map
+    except Exception as e:
+        logging.error("获取测试结果失败：{}，原因可能是文件不完整".format(mvn_test_file_log))
+        raise
+
