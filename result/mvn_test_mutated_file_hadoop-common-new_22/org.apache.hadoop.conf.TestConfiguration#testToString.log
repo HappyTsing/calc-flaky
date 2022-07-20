@@ -1,0 +1,57 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] ------------------------------------------------------------------------
+[[1;34mINFO[m] Detecting the operating system and CPU architecture
+[[1;34mINFO[m] ------------------------------------------------------------------------
+[[1;34mINFO[m] os.detected.name: linux
+[[1;34mINFO[m] os.detected.arch: x86_64
+[[1;34mINFO[m] os.detected.version: 5.4
+[[1;34mINFO[m] os.detected.version.major: 5
+[[1;34mINFO[m] os.detected.version.minor: 4
+[[1;34mINFO[m] os.detected.release: ubuntu
+[[1;34mINFO[m] os.detected.release.version: 18.04
+[[1;34mINFO[m] os.detected.release.like.ubuntu: true
+[[1;34mINFO[m] os.detected.release.like.debian: true
+[[1;34mINFO[m] os.detected.classifier: linux-x86_64
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------< [0;36morg.apache.hadoop:hadoop-common[0;1m >-------------------[m
+[[1;34mINFO[m] [1mBuilding Apache Hadoop Common 3.3.2[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-antrun-plugin:1.7:run[m [1m(create-testdirs)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Executing tasks
+
+main:
+[[1;34mINFO[m] Executed tasks
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mprotobuf-maven-plugin:0.5.1:compile[m [1m(src-compile-protoc)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Compiling 14 proto file(s) to /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/generated-sources/java
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mprotobuf-maven-plugin:0.5.1:compile[m [1m(src-compile-protoc-legacy)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Compiling 1 proto file(s) to /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/generated-sources/java
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(banned-illegal-imports)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mreplacer:1.5.3:replace[m [1m(replace-generated-sources)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Replacement run on 14 files.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mreplacer:1.5.3:replace[m [1m(replace-sources)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Replacement run on 1097 files.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mreplacer:1.5.3:replace[m [1m(replace-guava)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Replacement run on 1779 files.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mhadoop-maven-plugins:3.3.2:version-info[m [1m(version-info)[m @ [36mhadoop-common[0;1m ---[m
+[[1;33mWARNING[m] [git, branch] failed with error code 128
+[[1;34mINFO[m] SCM: NONE
+[[1;34mINFO[m] Computed MD5: 4b40fff8bb27201ba07b6fa5651217fb
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mhadoop-maven-plugins:3.3.2:resource-gz[m [1m(resource-gz)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Compressing /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/webapps/static/hadoop.css to /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/webapps/static/hadoop.css.gz
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 10 resources
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Compiling 1117 source files to /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/classes

@@ -1,0 +1,194 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] ------------------------------------------------------------------------
+[[1;34mINFO[m] Detecting the operating system and CPU architecture
+[[1;34mINFO[m] ------------------------------------------------------------------------
+[[1;34mINFO[m] os.detected.name: linux
+[[1;34mINFO[m] os.detected.arch: x86_64
+[[1;34mINFO[m] os.detected.version: 5.4
+[[1;34mINFO[m] os.detected.version.major: 5
+[[1;34mINFO[m] os.detected.version.minor: 4
+[[1;34mINFO[m] os.detected.release: ubuntu
+[[1;34mINFO[m] os.detected.release.version: 18.04
+[[1;34mINFO[m] os.detected.release.like.ubuntu: true
+[[1;34mINFO[m] os.detected.release.like.debian: true
+[[1;34mINFO[m] os.detected.classifier: linux-x86_64
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------< [0;36morg.apache.hadoop:hadoop-common[0;1m >-------------------[m
+[[1;34mINFO[m] [1mBuilding Apache Hadoop Common 3.3.2[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-antrun-plugin:1.7:run[m [1m(create-testdirs)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Executing tasks
+
+main:
+[[1;34mINFO[m] Executed tasks
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mprotobuf-maven-plugin:0.5.1:compile[m [1m(src-compile-protoc)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Compiling 14 proto file(s) to /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/generated-sources/java
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mprotobuf-maven-plugin:0.5.1:compile[m [1m(src-compile-protoc-legacy)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Compiling 1 proto file(s) to /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/generated-sources/java
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(banned-illegal-imports)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mreplacer:1.5.3:replace[m [1m(replace-generated-sources)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Replacement run on 14 files.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mreplacer:1.5.3:replace[m [1m(replace-sources)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Replacement run on 1097 files.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mreplacer:1.5.3:replace[m [1m(replace-guava)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Replacement run on 1779 files.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mhadoop-maven-plugins:3.3.2:version-info[m [1m(version-info)[m @ [36mhadoop-common[0;1m ---[m
+[[1;33mWARNING[m] [git, branch] failed with error code 128
+[[1;34mINFO[m] SCM: NONE
+[[1;34mINFO[m] Computed MD5: 4b40fff8bb27201ba07b6fa5651217fb
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mhadoop-maven-plugins:3.3.2:resource-gz[m [1m(resource-gz)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Compressing /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/webapps/static/hadoop.css to /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/webapps/static/hadoop.css.gz
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 10 resources
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Compiling 1117 source files to /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/classes
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/io/nativeio/NativeIO.java:[48,16] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/service/launcher/IrqHandler.java:[26,16] sun.misc.Signal is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/service/launcher/IrqHandler.java:[27,16] sun.misc.SignalHandler is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/io/FastByteComparisons.java:[27,16] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/util/SignalLogger.java:[21,16] sun.misc.Signal is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/util/SignalLogger.java:[22,16] sun.misc.SignalHandler is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/io/nativeio/NativeIO.java:[871,17] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/io/nativeio/NativeIO.java:[873,7] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/io/nativeio/NativeIO.java:[873,24] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/service/launcher/IrqHandler.java:[42,42] sun.misc.SignalHandler is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/service/launcher/IrqHandler.java:[71,11] sun.misc.Signal is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/service/launcher/IrqHandler.java:[92,20] sun.misc.Signal is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/service/launcher/IrqHandler.java:[93,7] sun.misc.Signal is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/service/launcher/IrqHandler.java:[113,5] sun.misc.Signal is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/service/launcher/IrqHandler.java:[126,22] sun.misc.Signal is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/io/FastByteComparisons.java:[134,20] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/io/FastByteComparisons.java:[140,22] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/io/FastByteComparisons.java:[145,29] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/util/SignalLogger.java:[44,43] sun.misc.SignalHandler is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/util/SignalLogger.java:[46,19] sun.misc.SignalHandler is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/util/SignalLogger.java:[50,39] sun.misc.Signal is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/util/SignalLogger.java:[50,21] sun.misc.Signal is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/util/SignalLogger.java:[59,24] sun.misc.Signal is internal proprietary API and may be removed in a future release
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/security/token/delegation/ZKDelegationTokenSecretManager.java: Some input files use or override a deprecated API.
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/security/token/delegation/ZKDelegationTokenSecretManager.java: Recompile with -Xlint:deprecation for details.
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/fs/FileSystem.java: Some input files use unchecked or unsafe operations.
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/fs/FileSystem.java: Recompile with -Xlint:unchecked for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mavro-maven-plugin:1.7.7:schema[m [1m(generate-avro-test-sources)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mprotobuf-maven-plugin:0.5.1:test-compile[m [1m(src-test-compile-protoc)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Compiling 2 proto file(s) to /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/generated-test-sources/java
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mprotobuf-maven-plugin:0.5.1:compile[m [1m(src-test-compile-protoc-legacy)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Compiling 2 proto file(s) to /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/generated-test-sources/java
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mreplacer:1.5.3:replace[m [1m(replace-test-sources)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Replacement run on 676 files.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 33 resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-antrun-plugin:1.7:run[m [1m(create-log-dir)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Executing tasks
+
+main:
+   [delete] Deleting directory /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/test/data
+    [mkdir] Created dir: /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/test/data
+[[1;34mINFO[m] Executed tasks
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mreplacer:1.5.3:replace[m [1m(replace-generated-test-sources)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Replacement run on 3 files.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:testCompile[m [1m(default-testCompile)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Compiling 682 source files to /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/test-classes
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/test/java/org/apache/hadoop/security/ssl/KeyStoreTestUtil.java: Some input files use or override a deprecated API.
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/test/java/org/apache/hadoop/security/ssl/KeyStoreTestUtil.java: Recompile with -Xlint:deprecation for details.
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/test/java/org/apache/hadoop/test/LambdaTestUtils.java: Some input files use unchecked or unsafe operations.
+[[1;33mWARNING[m] /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/src/test/java/org/apache/hadoop/test/LambdaTestUtils.java: Recompile with -Xlint:unchecked for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0-M1:test[m [1m(default-test)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running org.apache.hadoop.fs.[1mTestSymlinkLocalFSFileContext[m
+[[1;31mERROR[m] [1;31mTests [0;1mrun: [0;1m1[m, Failures: 0, [1;31mErrors: [0;1;31m1[m, Skipped: 0, Time elapsed: 0.371 s[1;31m <<< FAILURE![m - in org.apache.hadoop.fs.[1mTestSymlinkLocalFSFileContext[m
+[[1;31mERROR[m] testCreateDirViaSymlink(org.apache.hadoop.fs.TestSymlinkLocalFSFileContext)  Time elapsed: 0.02 s  <<< ERROR!
+java.lang.IllegalArgumentException: Unable to parse configuration fs.permissions.umask-mode with value 23 as octal or symbolic umask.
+	at org.apache.hadoop.fs.permission.FsPermission.getUMask(FsPermission.java:324)
+	at org.apache.hadoop.fs.FileContext.getUMask(FileContext.java:585)
+	at org.apache.hadoop.fs.FileContext.mkdir(FileContext.java:804)
+	at org.apache.hadoop.fs.FileContextTestWrapper.mkdir(FileContextTestWrapper.java:211)
+	at org.apache.hadoop.fs.SymlinkBaseTest.setUp(SymlinkBaseTest.java:80)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;31mERROR[m] [1;31mErrors: [m
+[[1;31mERROR[m] [1;31m  TestSymlinkLocalFSFileContext>SymlinkBaseTest.setUp:80 » IllegalArgument Unabl...[m
+[[1;34mINFO[m] 
+[[1;31mERROR[m] [1;31mTests run: 1, Failures: 0, Errors: 1, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;31mERROR[m] There are test failures.
+
+Please refer to /home/wlq/Projects/configClassify/hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-antrun-plugin:1.7:run[m [1m(common-test-bats-driver)[m @ [36mhadoop-common[0;1m ---[m
+[[1;34mINFO[m] Executing tasks
+
+main:
+     [exec] 
+     [exec] 
+     [exec] ERROR: bats not installed. Skipping bash tests.
+     [exec] ERROR: Please install bats as soon as possible.
+     [exec] 
+     [exec] 
+[[1;34mINFO[m] Executed tasks
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  20.323 s
+[[1;34mINFO[m] Finished at: 2022-07-19T01:21:22+08:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
