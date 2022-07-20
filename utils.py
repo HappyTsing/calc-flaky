@@ -16,7 +16,7 @@ logging.basicConfig(level=logging.DEBUG,
 
 '''
 @meta_type: [path, name]
-@meta_name：[mutated_config, ctest_result, hadoop_config, maven]
+@meta_name：[mutated_config, ctest_result, hadoop_config, maven, result]
 '''
 
 
@@ -85,7 +85,7 @@ def get_false_ctest(mutated_config_name):
         raise
 
 
-# @useCache：已经跑过的是否需要重新跑一次
+# @useCache：是否使用缓存
 def do_mvn_tests(mutated_config_name, tsv_false, useCache: bool = False):
     maven_path = get_meta("path", "maven")
     mutated_config_name_no_suffix = mutated_config_name.split(".")[

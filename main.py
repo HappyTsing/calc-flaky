@@ -4,7 +4,6 @@ from utils import config_replace, get_false_ctest, do_mvn_tests, get_ordered_all
     get_ordered_result_dirs, calc_single_file, get_meta
 from tqdm import tqdm
 
-# from utils import init
 LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
 DATE_FORMAT = "%Y/%m/%d %H:%M:%S %p"
 logging.basicConfig(level=logging.DEBUG,
@@ -61,6 +60,9 @@ def calc_flaky_percent():
                 calc_merge[k] += v
         logging.info("=============================================================")
     logging.info("汇总计算结果为:{}".format(calc_merge))
+    flack_percent = (
+        (calc_merge["Errors"]+calc_merge["Failures"])/calc_merge["run"])*100
+    logging.info("误报率 = (Failures + Errors)/run = {}%".format(flack_percent))
     return 0
 
 
