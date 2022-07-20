@@ -122,8 +122,6 @@ def get_ordered_result_dirs():
 
 def calc_single_file(dir_path, mvn_test_file_log):
     try:
-        print(dir_path)
-        print(mvn_test_file_log)
         with open("{}/{}".format(dir_path, mvn_test_file_log), 'r') as f:
             mvn_test_log = f.read()
             regex = r"Tests run: \d, Failures: \d, Errors: \d, Skipped: \d"
