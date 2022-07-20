@@ -99,7 +99,8 @@ def do_mvn_tests(mutated_config_name, tsv_false, useCache: bool = False):
         os.system("mkdir -p {}/mvn_test_{}".format(result_path, mutated_config_name_no_suffix))
     for _index, row in tsv_false.iterrows():
         class_path = row["class_path"]
-        if useCache and os.path.exists("{}/mvn_test_{}/{}.log".format(result_path, mutated_config_name_no_suffix, class_path)):
+        if useCache and os.path.exists(
+                "{}/mvn_test_{}/{}.log".format(result_path, mutated_config_name_no_suffix, class_path)):
             logging.info(
                 "mvn_test_{}/{}.log Hit the cache！".format(mutated_config_name_no_suffix, class_path))
             continue
@@ -121,7 +122,9 @@ def get_ordered_result_dirs():
 
 def calc_single_file(dir_path, mvn_test_file_log):
     try:
-        with open("{}/".format(dir_path) + mvn_test_file_log, 'r') as f:
+        print(dir_path)
+        print(mvn_test_file_log)
+        with open("{}/{}".format(dir_path, mvn_test_file_log), 'r') as f:
             mvn_test_log = f.read()
             regex = r"Tests run: \d, Failures: \d, Errors: \d, Skipped: \d"
             mvn_test_result = re.search(regex, mvn_test_log).group()
@@ -135,4 +138,3 @@ def calc_single_file(dir_path, mvn_test_file_log):
     except Exception as e:
         logging.error("获取测试结果失败：{}，原因可能是文件不完整".format(mvn_test_file_log))
         raise
-
