@@ -62,7 +62,7 @@ def calc_flaky_percent():
     logging.info("汇总计算结果为:{}".format(calc_merge))
     flack_percent = (
         (calc_merge["Errors"]+calc_merge["Failures"])/calc_merge["run"])*100
-    logging.info("误报率 = (Failures + Errors)/run = {}%".format(flack_percent))
+    logging.info("正确率 = (Failures + Errors)/run = {}%".format(flack_percent))
     return 0
 
 
