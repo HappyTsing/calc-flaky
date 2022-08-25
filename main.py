@@ -26,7 +26,8 @@ def mvn_retest():
                 tsv_false = get_false_ctest(mutated_config_name)
                 counts = tsv_false.shape[0]
                 if counts > 30:
-                    logging.error("{} 错误f的条目总数为：{},大于30，跳过".format(mutated_config_name, counts))
+                    logging.error("{} 错误f的条目总数为：{},大于30，跳过".format(
+                        mutated_config_name, counts))
                     continue
                 # 3. 为每个错误的测试执行mvn，并写入文件中
                 do_mvn_tests(mutated_config_name, tsv_false, useCache=True)
@@ -46,7 +47,8 @@ def calc_flaky_percent():
     }
     for dir_name in result_dir_names:
         logging.info("当前计算的目录名：{}".format(dir_name))
-        logging.info("=============================================================")
+        logging.info(
+            "=============================================================")
         dir_files = os.listdir("{}/{}".format(result_path, dir_name))
         for mvn_test_log in dir_files:
             logging.info("当前计算的文件名：{}".format(mvn_test_log))
@@ -58,7 +60,8 @@ def calc_flaky_percent():
                 continue
             for k, v in result.items():
                 calc_merge[k] += v
-        logging.info("=============================================================")
+        logging.info(
+            "=============================================================")
     logging.info("汇总计算结果为:{}".format(calc_merge))
     flack_percent = (
         (calc_merge["Errors"]+calc_merge["Failures"])/calc_merge["run"])*100
@@ -66,5 +69,10 @@ def calc_flaky_percent():
     return 0
 
 
-# mvn_retest()
-calc_flaky_percent()
+# def yarn_run_ctest_result_analysis():
+
+
+mvn_retest()
+
+
+# calc_flaky_percent()

@@ -1,8 +1,11 @@
+from cgi import print_arguments
+from email.policy import default
 import json
 import logging
 import os
 import subprocess
 import shutil
+from webbrowser import get
 import pandas as pd
 from functools import cmp_to_key
 import re
@@ -16,7 +19,7 @@ logging.basicConfig(level=logging.DEBUG,
 
 '''
 @meta_type: [path, name]
-@meta_name：[mutated_config, ctest_result, hadoop_config, maven, result]
+@meta_name：[mutated_config, ctest_result, default_config, maven, result]
 '''
 
 
@@ -43,8 +46,10 @@ def cmp(a, b):
 def get_ordered_all_mutated_config_names():
     mutated_config_path = get_meta("path", "mutated_config")
     mutated_config_names = os.listdir(mutated_config_path)
+    default_config_name = get_meta("name", "default_config")
     # 删除core-default.xml
-    mutated_config_names.remove("core-default.xml")
+    if default_config_name in mutated_config_names:
+        mutated_config_names.remove(default_config_name)
     # 排序
     mutated_config_names.sort(key=cmp_to_key(cmp))
     return mutated_config_names
@@ -53,23 +58,23 @@ def get_ordered_all_mutated_config_names():
 def config_replace(mutated_config_name):
     try:
         mutated_config_path = get_meta("path", "mutated_config")
-        hadoop_config_path = get_meta("path", "hadoop_config")
-        hadoop_config_name = get_meta("name", "hadoop_config")
+        default_config_path = get_meta("path", "default_config")
+        default_config_name = get_meta("name", "default_config")
         shutil.copy("{}/{}".format(mutated_config_path, mutated_config_name),
-                    "{}/{}".format(hadoop_config_path, hadoop_config_name))
+                    "{}/{}".format(default_config_path, default_config_name))
         return True
     except Exception as e:
         logging.error(e)
         raise
 
 
-def get_ctest_result_name(mutated_config_name):
-    mutated_config_name_list = mutated_config_name.split(".")
+def get_ctest_result_name(mutated_config_name):  # 根据 变异的配置名，获取 该变异的ctest结果文件名
+    mutated_config_name_list = mutated_config_name.split(".xml")
     ctest_result_name = "test_result_" + mutated_config_name_list[0] + ".tsv"
     return ctest_result_name
 
 
-def get_false_ctest(mutated_config_name):
+def get_false_ctest(mutated_config_name):  # 获取所有f的测试结果
     try:
         ctest_result_path = get_meta("path", "ctest_result")
         ctest_result_name = get_ctest_result_name(mutated_config_name)
@@ -88,15 +93,15 @@ def get_false_ctest(mutated_config_name):
 # @useCache：是否使用缓存
 def do_mvn_tests(mutated_config_name, tsv_false, useCache: bool = False):
     maven_path = get_meta("path", "maven")
-    mutated_config_name_no_suffix = mutated_config_name.split(".")[
+    mutated_config_name_no_suffix = mutated_config_name.split(".xml")[
         0]  # 去文件后缀.xml
     result_path = get_meta("path", "result")
-    print(result_path)
     # 避免重复创建结果文件夹
     if not os.path.exists(result_path):
         os.system("mkdir -p {}".format(result_path))
     if not os.path.exists("{}/mvn_test_{}".format(result_path, mutated_config_name_no_suffix)):
-        os.system("mkdir -p {}/mvn_test_{}".format(result_path, mutated_config_name_no_suffix))
+        os.system("mkdir -p {}/mvn_test_{}".format(result_path,
+                  mutated_config_name_no_suffix))
     for _index, row in tsv_false.iterrows():
         class_path = row["class_path"]
         if useCache and os.path.exists(
@@ -115,6 +120,8 @@ def do_mvn_tests(mutated_config_name, tsv_false, useCache: bool = False):
 
 def get_ordered_result_dirs():
     result_path = get_meta("path", "result")
+    if not os.path.exists(result_path):
+        os.system("mkdir -p {}".format(result_path))
     dir_names = os.listdir(result_path)
     dir_names.sort(key=cmp_to_key(cmp))
     return dir_names

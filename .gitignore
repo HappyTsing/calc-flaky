@@ -161,4 +161,5 @@ cython_debug/
 
 # my
 result
+calc_flaky_result
 nohup.out

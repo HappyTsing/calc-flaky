@@ -1,15 +1,15 @@
 {
-    "path":{
-        "mutated_config":"../run_ctest/sample-hadoop-common-new",
-        "ctest_result":"../run_ctest/run_ctest_result/hadoop-common-new",
-        "hadoop_config":"../hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common/target/classes",
-        "maven":"../hadoop-rel-release-3.3.2/hadoop-common-project/hadoop-common",
-        "result":"./result"
-    },
-    "name":{
-        "hadoop_config":"core-default.xml"
-    },
-    "comment":{
-        "pwd":"configClassify/calc_flaky"
-    }
+  "path": {
+    "mutated_config": "../core/run_ctest/mutated_out_xml/hadoop-2.10.2-yarn",
+    "ctest_result": "../core/run_ctest/run_ctest_result/hadoop-2.10.2-yarn",
+    "default_config": "../core/app/hadoop-2.10.2-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-common/target/classes",
+    "maven": "../core/app/hadoop-2.10.2-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-common",
+    "result": "./calc_flaky_result"
+  },
+  "name": {
+    "default_config": "yarn-default.xml"
+  },
+  "comment": {
+    "pwd": "configClassify/calc_flaky"
+  }
 }
